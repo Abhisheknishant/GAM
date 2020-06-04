@@ -2,7 +2,9 @@ if: tag IS blank
 os: linux
 language: python
 dist: xenial
-
+arch:
+    - amd64
+    - arm64
 env:
   global:
     - BUILD_PYTHON_VERSION=3.8.3
@@ -48,6 +50,11 @@ jobs:
       dist: focal
       language: shell
     - os: linux
+      arch: arm64
+      name: "Linux 64-bit Focal"
+      dist: focal
+      language: shell
+    - os: linux
       name: "Linux 64-bit Bionic"
       dist: bionic
       language: shell
@@ -80,11 +87,36 @@ jobs:
       language: python
       python: 3.9-dev
     - os: linux
+      arch: arm64
+      name: "Python 3.6 Source Testing"
+      language: python
+      python: 3.6
+    - os: linux
+      name: "Python 3.7 Source Testing"
+      arch: srm64
+      language: python
+      python: 3.7
+    - os: linux
+      name: "Python 3.9 dev Source Testing"
+      arch: arm64
+      language: python
+      python: 3.9-dev
+    - os: linux
       name: "Python trunk nightly Source Testing"
       language: python
       python: nightly
     - os: linux
       name: "Python PyPi Source Testing"
+      language: python
+      python: pypy3
+    - os: linux
+      name: "Python trunk nightly Source Testing"
+      arch: arm64
+      language: python
+      python: nightly
+    - os: linux
+      name: "Python PyPi Source Testing"
+      arch: arm64
       language: python
       python: pypy3
     - os: osx
